@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mixpanel Test</title>
+  <script src="https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"></script>
+  <script>
+    // Initialize Mixpanel with your project token
+    mixpanel.init("4801082c11fe91194e329c8b8475a162");
+
+    function trackTestViewed(variant, converted) {
+      mixpanel.track("Test Viewed", {
+        variant: variant,
+        converted: converted
+      });
+      alert(`Sent event: variant=${variant}, converted=${converted}`);
+    }
+  </script>
+</head>
+<body>
+  <h1>Mixpanel A/B Test Demo</h1>
+  <button onclick="trackTestViewed('A', true)">Variant A - Converted</button>
+  <button onclick="trackTestViewed('A', false)">Variant A - Not Converted</button>
+  <button onclick="trackTestViewed('B', true)">Variant B - Converted</button>
+  <button onclick="trackTestViewed('B', false)">Variant B - Not Converted</button>
+</body>
+</html>
